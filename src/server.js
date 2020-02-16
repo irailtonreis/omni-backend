@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 
 const server = express();
 
-mongoose.connect('mongodb+srv://omniback:omniback@cluster0-nbbby.mongodb.net/users?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://omniback:omniback@cluster0-nbbby.mongodb.net/omniback?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })

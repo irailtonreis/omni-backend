@@ -3,18 +3,8 @@ const User = require('../models/User');
 module.exports = {
 
   async index(req, res){
-    const { nome, email, avatar, descricao} = req.body;
-
-    console.log(nome, email, avatar, descricao);
-
-    const user = await User.create({
-      nome,
-      email,
-      avatar,
-      descricao,
-    })
-
-    return res.json(user);
+   
+   
 
   },
 
@@ -22,7 +12,22 @@ module.exports = {
 
   },
 
-  async store(){
+  async store(req, res){
+    const { nome, email, avatar, descricao} = req.body;
+
+    let user = await User.find({email});
+
+    if(!user){
+      user = await User.create({
+        nome,
+        email,
+        avatar,
+        descricao,
+      });
+
+    }
+
+    return res.json(user);
 
   },
 
