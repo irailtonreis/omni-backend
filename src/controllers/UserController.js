@@ -16,7 +16,7 @@ module.exports = {
 
   async show(req, res){
 
-    const {id, nome, email, avatar, descricao} = await User.findOne({id: req.query.id});
+    const {id, nome, email, avatar, descricao} = await User.findOne({_id: req.params.id});
 
     return res.status(200).json({id, nome, email, avatar, descricao});
   
@@ -40,6 +40,7 @@ module.exports = {
 
     const { nome, email, avatar, descricao } = req.body;
 
+   
     let user = await User.findOne({_id: req.params.id});
   
     if(!user){
