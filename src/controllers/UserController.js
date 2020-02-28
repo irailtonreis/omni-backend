@@ -30,9 +30,9 @@ module.exports = {
       return res.status(400).json({ error: 'Usuário já existe.'})
     }
 
-  const { id, nome, email, avatar, descricao }  =  await User.create(req.body);
+  const { _id, nome, email, avatar, descricao }  =  await User.create(req.body);
 
-  return res.status(200).json({ id, nome, email, avatar, descricao});
+  return res.status(200).json({ _id, nome, email, avatar, descricao});
 
   },
 
